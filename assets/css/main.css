@@ -22,6 +22,7 @@
 body {
    width: 100%;
    color: var(--color-text);
+   background-color: #fff;
 }
 
 img {

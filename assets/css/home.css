@@ -1,6 +1,7 @@
 .home-page {
 	width: 100%;
 	min-height: 100vh;
+   background-color: #fff;
 	padding: 50px 30px;
 	text-align: center;
    font-size: 1.1rem;
