@@ -1,6 +1,6 @@
 import { getData, setData } from './logic/database.js';
 
-// Verificação: Se já existir usuário no localStorage, muda de página.
+// Se já existir usuário no localStorage, muda de página.
 if (getData().length) {
    window.location.assign('./dashboard.html');
 }
@@ -20,7 +20,7 @@ const inputPassword = form.querySelectorAll('input')[1];
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 
-	const nameValue = String(inputName).trim().split(' ')[0];
+	const nameValue = inputName.value.trim().split(' ')[0];
 
 	if (!nameValue.length) {
 		alert('Por favor, informe seu nome.');
@@ -35,4 +35,6 @@ form.addEventListener('submit', (e) => {
 	alert('Usuário cadastrado com sucesso!');
 
 	setData({ name: nameValue, password: inputPassword.value, saldo: 0 });
+
+   window.location.assign('./dashboard.html');
 });
