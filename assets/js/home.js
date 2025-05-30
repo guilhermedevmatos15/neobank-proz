@@ -1,8 +1,8 @@
 import { getData, setData } from './logic/database.js';
 
 // Se já existir usuário no localStorage, muda de página.
-if (getData().length) {
-   window.location.assign('./dashboard.html');
+if (getData()?.name?.length) {
+	window.location.assign('./dashboard.html');
 }
 
 // Abrir Star Wars ao clicar
@@ -36,5 +36,5 @@ form.addEventListener('submit', (e) => {
 
 	setData({ name: nameValue, password: inputPassword.value, saldo: 0 });
 
-   window.location.assign('./dashboard.html');
+	window.location.assign('./dashboard.html');
 });
