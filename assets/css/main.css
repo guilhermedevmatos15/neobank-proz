@@ -28,3 +28,10 @@ body {
 img {
    width: 200px;
 }
+
+.text--upper {
+   text-transform: uppercase;
+}
+.text--cap {
+   text-transform: capitalize;
+}
