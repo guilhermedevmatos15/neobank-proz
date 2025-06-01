@@ -79,6 +79,12 @@ form.addEventListener('submit', (e) => {
 		return;
 	}
 
+   if (valorNumerico > data?.saldo) {
+      alert('Saldo insuficiente!');
+		inputValor.focus();
+		return;
+   }
+
 	// Atualiza o saldo
    alert('Saque efetuado!');
 	data.saldo -= valorNumerico;
