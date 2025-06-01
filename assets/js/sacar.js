@@ -1,4 +1,4 @@
-import { getData } from './logic/database.js';
+import { getData, setData } from './logic/database.js';
 
 let data = getData();
 
@@ -46,8 +46,62 @@ iconQuestion.addEventListener('click', () => {
 
 // Mudar de página
 [...document.querySelectorAll('.actions-app .action')][0].addEventListener('click', () => {
-	window.location.assign('./deposit.html');
+	window.location.assign('./index.html');
 });
 [...document.querySelectorAll('.actions-app .action')][1].addEventListener('click', () => {
-	window.location.assign('./sacar.html');
+	window.location.assign('./deposit.html');
+});
+
+// Submit
+const form = document.querySelector('main form');
+const inputValor = document.getElementById('input-valor-saque');
+const inputPassword = document.getElementById('input-password');
+
+function limparMascara(valorFormatado) {
+	return parseFloat(valorFormatado.replace(/[R$\s.]/g, '').replace(',', '.'));
+}
+
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+
+	const valorNumerico = limparMascara(inputValor.value);
+
+	if (valorNumerico <= 0 || isNaN(valorNumerico)) {
+		alert('Por favor, insira um valor válido.');
+		inputValor.focus();
+		return;
+	}
+
+	if (inputPassword.value.trim() !== data?.password) {
+		alert('Senha inválida, tente novamente.');
+		inputPassword.value = '';
+		inputPassword.focus();
+		return;
+	}
+
+	// Atualiza o saldo
+   alert('Saque efetuado!');
+	data.saldo -= valorNumerico;
+	setData(data);
+	window.location.reload();
+});
+
+// Máscara de input
+inputValor.addEventListener('input', () => {
+	let valor = inputValor.value;
+
+	valor = valor.replace(/\D/g, '');
+
+	if (valor === '') {
+		inputValor.value = '';
+		return;
+	}
+
+	valor = (parseInt(valor, 10) / 100).toFixed(2);
+
+	valor = valor.replace('.', ',');
+
+	valor = `R$ ${valor}`;
+
+	inputValor.value = valor;
 });

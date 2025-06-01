@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Dashboard | NeoBank</title>
+		<title>Sacar | NeoBank</title>
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="./assets/css/main.css" />
-		<link rel="stylesheet" href="./assets/css/dashboard.css" />
+		<link rel="stylesheet" href="./assets/css/sacar.css" />
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="./assets/img/favicon.png" type="image/png" />
@@ -25,7 +25,7 @@
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 	</head>
 	<body>
-		<div class="dashboard-page">
+		<div class="sacar-page">
 			<header>
 				<div>
 					<i class="fa-solid fa-circle-user"></i>
@@ -40,7 +40,7 @@
 					</div>
 				</div>
 
-				<p>Bem-vindo, <span class="name">Gabriel</span></p>
+				<p>Bem-vindo, <span class="name"></span></p>
 			</header>
 
 			<main>
@@ -55,24 +55,23 @@
 
 				<section class="actions-app">
 					<div class="action">
-						<i class="fa-solid fa-download"></i>
-						<p>Depositar</p>
+						<i class="fa-solid fa-house"></i>
+						<p>Home</p>
 					</div>
 					<div class="action">
 						<i class="fa-solid fa-money-bill-transfer"></i>
-						<p>Sacar</p>
+						<p>Depositar</p>
 					</div>
 				</section>
 
-				<article>
-					<img src="assets/img/card.PNG" alt="Anúncio cartão" />
+				<form>
+					<h2>Sacar</h2>
+               
+					<input type="text" class="input" id="input-valor-saque" required placeholder="Informe o valor" />
+					<input type="password" class="input" id="input-password" required placeholder="Informe sua senha" />
 
-					<div class="content">
-						<h2>Ative o cartão</h2>
-						<p>Para ativar os benefícios. Taxa zero!</p>
-						<button class="btn text--upper">Ativar agora</button>
-					</div>
-				</article>
+					<button class="btn">Sacar</button>
+				</form>
 			</main>
 		</div>
 
@@ -84,6 +83,6 @@
 		</script>
 
 		<script src="./assets/js/main.js" type="module"></script>
-		<script src="./assets/js/dashboard.js" type="module"></script>
+		<script src="./assets/js/sacar.js" type="module"></script>
 	</body>
 </html>

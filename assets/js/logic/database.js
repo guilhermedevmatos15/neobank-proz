@@ -15,8 +15,7 @@ function getData() {
 }
 
 function setData(newData) {
-	data = newData;
-	localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(data));
+	localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(newData));
 }
 
 export { getData, setData };
