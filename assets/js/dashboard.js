@@ -26,6 +26,7 @@ iconEye.addEventListener('click', () => {
 	iconEyeSlash.classList.add('active');
 
 	saldoElement.classList.add('hide');
+	saldoElement.innerHTML = 'R$ ***,**';
 	console.log(saldoElement);
 });
 
@@ -34,6 +35,7 @@ iconEyeSlash.addEventListener('click', () => {
 	iconEye.classList.add('active');
 
 	saldoElement.classList.remove('hide');
+	saldoElement.innerHTML = `R$ ${saldo.replace('.', ',')}`;
 	console.log(saldoElement);
 });
 

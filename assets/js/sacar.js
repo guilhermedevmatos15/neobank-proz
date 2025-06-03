@@ -26,6 +26,7 @@ iconEye.addEventListener('click', () => {
 	iconEyeSlash.classList.add('active');
 
 	saldoElement.classList.add('hide');
+	saldoElement.innerHTML = 'R$ ***,**';
 	console.log(saldoElement);
 });
 
@@ -34,6 +35,7 @@ iconEyeSlash.addEventListener('click', () => {
 	iconEye.classList.add('active');
 
 	saldoElement.classList.remove('hide');
+	saldoElement.innerHTML = `R$ ${saldo.replace('.', ',')}`;
 	console.log(saldoElement);
 });
 
@@ -79,14 +81,14 @@ form.addEventListener('submit', (e) => {
 		return;
 	}
 
-   if (valorNumerico > data?.saldo) {
-      alert('Saldo insuficiente!');
+	if (valorNumerico > data?.saldo) {
+		alert('Saldo insuficiente!');
 		inputValor.focus();
 		return;
-   }
+	}
 
 	// Atualiza o saldo
-   alert('Saque efetuado!');
+	alert('Saque efetuado!');
 	data.saldo -= valorNumerico;
 	setData(data);
 	window.location.reload();
